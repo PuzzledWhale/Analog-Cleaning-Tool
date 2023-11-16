@@ -1,5 +1,5 @@
 %% Read in video to convert
-vid_object = VideoReader("./Data/Interstellar (2014) 1080p BluRay x264 Hindi English AC3 - SP3LL.mkv");
+vid_object = VideoReader("./Data/The.Godfather.1972.1080p.BrRip.x264.BOKUTOX.YIFY.mp4");
 %% Initialize RNG with seed as current system time
 seed = round(clock()*[0 0 0 0 0 1].'*10000);
 rng(seed);
@@ -7,10 +7,10 @@ rng(seed);
 mkdir './training_data/'
 mkdir './ground_truth/'
 %% Convert frames
-%vid_object.CurrentTime = 400;
+vid_object.CurrentTime = 100;
 
-frame_count = 0;
-while vid_object.CurrentTime < 300
+frame_count = 2377;
+while vid_object.hasFrame
 frame = readFrame(vid_object);
 
 % Crop image to 4:3 aspect ratio and 1920x1440
